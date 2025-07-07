@@ -76,7 +76,7 @@ export async function login(req, res) {
             return res.status(400).json({message: "Invalid password"});
         }
 
-        const token = jwt.sign({userId: newUser._id}, process.env.JWT_SECRET, {expiresIn: '7d'});
+        const token = jwt.sign({userId: user._id}, process.env.JWT_SECRET, {expiresIn: '7d'});
         
         res.cookie("jwt", token, {
             maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
@@ -98,6 +98,6 @@ export async function login(req, res) {
 };
 
 export async function logout(req, res) {
-    // Handle user logout logic here
-    res.send('Logout Route');
+    res.clearCookie("jwt");
+    res.status(200).json({ success: true,message: "Logged out successfully"});
 };
