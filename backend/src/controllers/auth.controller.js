@@ -143,6 +143,18 @@ export async function onboard(req, res) {
         }
 
         // TODO: UPDATE THE USER INFO IN STREAM
+        try {
+            await upsertStreamUser({
+            id: updatedUser._id.toString(),
+            name: updatedUser.fullName,
+            image: updatedUser.profilePicture || "",
+        });
+            console.log(`Stream user updated for ${updatedUser.fullName}`);
+        } catch (StreamError) {
+            console.error("Error updating Stream user:", StreamError);
+            return res.status(500).json({message: "Failed to update Stream user"});
+        }
+
         res.status(200).json({ success: true, user: updatedUser });
     } catch (error) {
         console.error("Error in onboarding:", error);
