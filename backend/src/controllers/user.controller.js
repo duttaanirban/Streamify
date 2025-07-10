@@ -136,6 +136,10 @@ export async function getFriendRequests(req, res) {
     }
 };
 
+// This function retrieves all outgoing friend requests sent by the current user
+// It populates the recipient's details like fullname, profilePicture, nativeLanguage, and learningLanguage
+// It returns the list of outgoing friend requests in the response
+// If an error occurs, it logs the error and returns a 500 status with an error
 export async function getOutgoingFriendRequests(req, res) {
     try {
         const outgoingReqs = await FriendRequest.find({
