@@ -18,6 +18,25 @@ import { Navigate } from "react-router-dom";
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const App = () => {
   // tanstack query
   const {data:authData, isLoading, error} = useQuery({
