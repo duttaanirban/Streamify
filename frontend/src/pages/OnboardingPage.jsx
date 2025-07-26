@@ -27,6 +27,10 @@ const OnboardingPage = () =>{
       toast.success("Onboarding completed successfully!");
       queryClient.invalidateQueries({ queryKey: ["authUser"] });
     },
+
+    onError: (error) => {
+      toast.error(error?.response?.data?.message || "Failed to complete onboarding");
+    }
   });
 
   const handleSubmit = (e) => {
