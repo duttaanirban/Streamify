@@ -11,10 +11,13 @@ import { Navigate } from "react-router-dom";
 import { PageLoader } from "./components/PageLoader.jsx"
 import useAuthUser from "./hooks/useAuthUser.js"
 import Layout from "./components/Layout.jsx"
+import { useThemeStore } from "./store/useThemeSelector.jsx"
 
 const App = () => {
   
   const {isLoading, authUser} = useAuthUser();
+  const {theme} = useThemeStore();
+
 
   const isAuthenticated = Boolean(authUser);
   const isOnboarded = authUser?.isOnboarded;
@@ -22,7 +25,7 @@ const App = () => {
   
 
   return (
-    <div className="h-screen" data-theme="forest">
+    <div className="h-screen" data-theme={theme}>
       <Routes>
         <Route path="/" element={isAuthenticated && isOnboarded? (
           <Layout showSidebar={true}>
