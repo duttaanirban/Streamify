@@ -41,9 +41,13 @@ const App = () => {
           isOnboarded ? "/" : "/onboarding"
         } />} />
         <Route path="/onboarding" element={isAuthenticated ? <OnboardingPage /> : <Navigate to="/login" />} />
-        <Route path="/notifications" element={isAuthenticated ? (
-          !isOnboarded ? (<OnboardingPage />) : (<Navigate to="/" />)
-        ) : (<Navigate to="/login" />) }/>
+        <Route path="/notifications" element={isAuthenticated && isOnboarded ? (
+          <Layout showSidebar={true}>
+            <NotificationPage />
+          </Layout>
+        ) : (
+          <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
+        )}/>
         <Route path="/call" element={isAuthenticated ? <Callpage /> : <Navigate to="/login" />} />
         <Route path="/chat" element={isAuthenticated ? <ChatPage /> : <Navigate to="/login" />} />
       </Routes>
