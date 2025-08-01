@@ -1,5 +1,7 @@
 <h1 align="center">✨ Fullstack Chat & Video Calling App ✨</h1>
 
+<p>Check it out -- https://streamify-43ny.onrender.com</p>
+
 ## ✨ Highlights
 
 - 🌐 Real-time Messaging with Typing Indicators & Reactions  
