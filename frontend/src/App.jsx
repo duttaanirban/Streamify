@@ -4,7 +4,7 @@ import SignupPage from "./pages/SignupPage.jsx"
 import OnboardingPage from "./pages/OnboardingPage.jsx"
 import NotificationPage from "./pages/NotificationPage.jsx"
 import Loginpage from "./pages/LoginPage.jsx"
-import Callpage from "./pages/Callpage.jsx"
+import Callpage from "./pages/CallPage.jsx"
 import ChatPage from "./pages/ChatPage.jsx"
 import { Toaster } from "react-hot-toast"
 import { Navigate } from "react-router-dom";
